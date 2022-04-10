@@ -1,10 +1,10 @@
-
+from automato import Automato
 
 class DFA:
-    def __init__(self, automato):
+    def __init__(self, aut: Automato):
         self.aut = automato
 
-        for p in automato.palavras:
+        for p in aut.palavras:
             self.aut.resultados.append(self.le_palavra(p))
 
     def le_palavra(self, palavra):
