@@ -27,8 +27,8 @@ sendo esses dados:
 * Estados finais
 * Palavras
 
-Seguindo o seguinte modelo baseado no tipo de arquivo JSON:
-
+Exemplo do seguinte automato da imagem como entrada:
+![Exemplo DFA](exemplo_dfa.png)
 ```
 {
     "regras_de_transicao":[
@@ -48,6 +48,8 @@ Seguindo o seguinte modelo baseado no tipo de arquivo JSON:
     1,0,1
     0,0,1
     1,0,2
+    1,0,0,1
+    1,0,1,0,1
     ]
 }
 ```
@@ -103,7 +105,27 @@ Todos os resultados são salvos em um arquivo de texto 'saida.txt', que tem uma 
 a um JSON, para todos os automatos informados de entrada.
 
 Exemplo encontrado no arquivo 'saida.txt' do exemplo apresentado acima:
-![Exemplo DFA](exemplo_dfa.png)
 ```
-
+{
+	Estados: ['s0', 's1', 's2']
+	Estado inicial: ['s0']
+	Estado final: ['s0']
+	Alfabeto: ['0', '1']
+	Regras de transição:[
+				0					1					
+		s0		['s0']				['s1']				
+		s1		['s2']				['s0']				
+		s2		['s1']				[]				
+	]
+	Palavras:[
+		['0']	->	O automato consegue ler essa palavra
+		['0', '0', '1']	->	A palavra não termina em um estado final, logo não é aceitavel
+		['1', '0']	->	A palavra não termina em um estado final, logo não é aceitavel
+		['1', '0', '0', '1']	->	O automato consegue ler essa palavra
+		['1', '0', '1']	->	O automato NÃO consegue ler essa palavra
+		['1', '0', '1', '0', '1']	->	O automato NÃO consegue ler essa palavra
+		['1', '0', '2']	->	Essa palavra contém valores fora do alfabeto do automato
+	]
+	Tipo: dfa
+}
 ```
