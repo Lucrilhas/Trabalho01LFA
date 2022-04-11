@@ -53,6 +53,11 @@ def interpreta_entrada(txt_entrada, aut):
         elif r'"palavras":' in lin:
             get_pl = True
 
+    # Tira regras de transicao repetidas
+    aux = aut.r_transicao
+    aut.r_transicao = []
+    [aut.r_transicao.append(x) for x in aux if x not in aut.r_transicao]
+
     # Pega os estados a partir das regras de transição
     for e1, e2, v in aut.r_transicao:
         if e1 not in aut.estados:
@@ -80,8 +85,6 @@ def interpreta_entrada(txt_entrada, aut):
     aut.r_transicao = dicionario
     aut.organiza()
     return aut
-
-
 
 def remove_special_chars(txt):
     return txt.replace(' ', '').replace('\n', '').replace('\t', '')
