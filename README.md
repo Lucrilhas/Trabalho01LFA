@@ -1,6 +1,8 @@
 ## Simulador de Autômato Finito
 
 ### Lucas Elias de Andrade Cruvinel
+#### Github: https://github.com/Lucrilhas/Trabalho01LFA
+#### Youtube: Não consegui subir o vídeo no youtube por estar sem wifi, apenas no 4g.
 
 #### Introdução
 Nesse trabalho foi realizado o trabalho de implementar um simulador de autômato 
