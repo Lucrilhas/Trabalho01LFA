@@ -77,6 +77,23 @@ os dados ficam salvos como instancia da classe Autonomo que se encontra no arqui
 A apartir do tipo analisado, o código agirá de acordo, caso seja DFA irá apenas realizar a execução,
 caso seja NFA irá acontecer a conversão de NFA para DFA e então executar como DFA.
 
+#### Como funciona?
+Foi implementado um simulador que verifica se as palavras entradas funcionam naquele automato,
+podendo simular DFA, NFA e e-NFA.
+
+Em todos os casos, é feito a partir do uso de uma fila de operações. Cada elemento dessa fila contém uma
+Tupla de estado de onde é pra ser executado e restante da palavra a ser executada.
+
+E então se inicia uma loop, onde a cada iteração se analisa o primeiro elemento da fila, a partir do estado
+atual nele escrito e do primeiro elemento do restante da palavra se criam novas operações que são inseridas
+na fila com o proximo estado e o restante da palavra.
+
+Esse loop é rodado até que o primeiro elemento da fila tenha o estado atual como estado final e não tenha
+mais palavra restante, o que faz essa palavra se aceita
+
+Caso o loop seja rodado até todas as operações possíveis serem feitas e não encontrar alguma resposta,
+a palavra é inválida
+<!--
 #### DFA
 
 A execução do DFA se encontra no arquivo 'automato.py' na classe DFA que recebe como entrada uma
@@ -104,7 +121,7 @@ estado criado. Dessa forma reformulando todas as regras de transição envolvida
 
 Dessa forma será criado um novo automato a partir desse, porém esse novo sendo um automato deterministico
 e iniciando o processo de DFA como descrito acima.
-
+-->
 #### Resultado
 
 Todos os resultados são salvos em um arquivo de texto 'saida.txt', que tem uma estrutura similar
@@ -135,3 +152,11 @@ Exemplo encontrado no arquivo 'saida.txt' do exemplo apresentado acima:
 	Tipo: dfa
 }
 ```
+
+#### Testes
+
+Todos os casos de teste utilizado nesse trabalho podem ser visualizados no arquivo ["exemplos.md"](exemplos.md) e suas 
+versões de entrada em ["exemplos.txt"](exemplos.txt).
+
+Por default todo o conteudo de "exemplos.txt" já esta em "entrada.txt" e todo o resultado deste já 
+está em "saida.txt".
