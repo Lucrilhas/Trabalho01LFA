@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
     # Para cada automato realiza uma simulacao
     for n, automato in enumerate(automatos):
-        Simulador(automato).inicia()    # Passa o automato para a simulacao e inicia
+        Simulador(automato, prints=False).inicia()    # Passa o automato para a simulacao e inicia
 
     print('Imprimindo resultados em saida.txt')
     automatos_to_text(automatos)        # Salva os resultados obtidos de todas as entradas no arquivo "saida.txt"
