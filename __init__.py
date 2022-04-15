@@ -10,5 +10,5 @@ if __name__ == '__main__':
 
         # for p, r in zip(automato.palavras, automato.resultados):
         #     print(p, r)
-    # print('Imprimindo resultados em saida.txt')
+    print('Imprimindo resultados em saida.txt')
     automatos_to_text(automatos)

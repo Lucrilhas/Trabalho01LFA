@@ -209,3 +209,95 @@ Exemplo NFA 03:
     1,0,1,0,1,0,0,0,0,1,0,0,1,0,1,0,1,0
     ]
 }
+
+
+Exemplo E-NFA 01:
+{
+    "regras_de_transicao":[
+    q0, q1, E
+    q0, q2, E
+    q1, q3, 0
+    q2, q3, 1
+    q3, q4, 1
+    ]
+    "estado_inicial": q0
+    "estado_final":[
+    q4
+    ]
+    "palavras":[
+    0
+    0,1
+    1,1
+    1,0
+    1,0,1
+    0,0,1
+    1,0,2
+    ]
+}
+
+Exemplo E-NFA 02:
+{
+    "regras_de_transicao":[
+    q0, q0, 0
+    q0, q1, E
+    q1, q1, 1
+    q1, q2, E
+    q2, q2, 2
+    ]
+    "estado_inicial": q0
+    "estado_final":[
+    q2
+    ]
+    "palavras":[
+    0
+    1,0
+    1,0,1
+    0,0,1
+    1,0,2
+    0,0,0,0
+    0,1,1,0
+    1,0,0,1
+    1,0,1,0,1
+    0,1,0,1,0,1
+    1,0,0,0,0,1,1
+    1,0,1,0,1,0,1,1
+    0,1,0,0,0,1,0,0,1
+    1,0,1,0,1,0,1,0,1,0,1
+    1,0,1,0,1,0,1,0,0,1,0,1,0,1,1,1,1,1
+    1,0,1,0,1,0,0,0,0,1,0,0,1,0,1,0,1,0
+    ]
+}
+
+Exemplo E-NFA 03:
+{
+    "regras_de_transicao":[
+    q0, q1, E
+    q1, q2, E
+    q1, q4, E
+    q2, q3, a
+    q3, q6, E
+    q4, q5, b
+    q5, q6, E
+    q6, q1, E
+    q6, q7, E
+    q7, q8, a
+    q8, q9, b
+    q9, q10, b
+    ]
+    "estado_inicial": q0
+    "estado_final":[
+    q10
+    ]
+    "palavras":[
+    a
+    b
+    a, a
+    a, b
+    b, a
+    b, b
+    a, a, b, b
+    b, a, b, b
+    a, a, a, b, b
+    b, a, a, b, b
+    ]
+}
