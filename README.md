@@ -6,10 +6,7 @@
 
 #### Introdução
 Nesse trabalho foi realizado o trabalho de implementar um simulador de autômato 
-finito que funcione tanto para autômatos deterministo (DFA) quanto não deterministico (NFA).
-
-Conforme a proposto do próprio professor, foi implementado inicialmente o DFA e 
-posteriormente um conversor de NFA para DFA
+finito que funcione tanto para autômatos deterministo (DFA) quanto não deterministico (NFA) e epsilon não deterministicos (e-NFA).
 
 #### Observação
 Vários exemplos podem ser visualizados no arquivo "exemplos.md" e encontrados no arquivo "exemplos.txt".
