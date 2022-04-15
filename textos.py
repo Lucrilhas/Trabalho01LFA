@@ -82,6 +82,13 @@ def interpreta_entrada(txt_entrada, aut):
             if len(dicionario[k][s0]) > 1:
                 aut.tipo = 'nfa'
 
+    if 'E' in aut.vals:
+        aut.tipo = 'e-nfa'
+        for k in dicionario:
+            if 'E' not in dicionario[k].keys():
+                k['E'] = []
+
+
     aut.r_transicao = dicionario
     aut.organiza()
     return aut

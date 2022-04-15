@@ -11,6 +11,9 @@ finito que funcione tanto para autômatos deterministo (DFA) quanto não determi
 Conforme a proposto do próprio professor, foi implementado inicialmente o DFA e 
 posteriormente um conversor de NFA para DFA
 
+#### Observação
+Vários exemplos podem ser visualizados no arquivo "exemplos.md" e encontrados no arquivo "exemplos.txt".
+
 #### Requisitos
 O código foi implementado utilizando a linguagem de programação Python, em especifico utilizando
 a versão 3.10, embora não se tenha feito testes é esperado que funcione para qualquer versão
@@ -30,7 +33,8 @@ sendo esses dados:
 * Palavras
 
 Exemplo do seguinte automato da imagem como entrada:
-![Exemplo DFA](exemplo_dfa.png)
+![Exemplo DFA](imgs/exemplo_dfa.png)
+
 ```
 {
     "regras_de_transicao":[

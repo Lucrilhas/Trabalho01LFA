@@ -1,20 +1,14 @@
 from textos import *
-from automato import DFA, nfa_to_dfa
+from simulador import Simulador
 
 if __name__ == '__main__':
     automatos = le_arq_entrada()
 
     for n, automato in enumerate(automatos):
-        print(f'Iniciando automato {n}')
-        # automato.printa_automato()
-        if automato.tipo == 'dfa':
-            print('Automato é do tipo DFA')
-            DFA(automato)
-        elif automato.tipo == 'nfa':
-            print('Automato é do tipo NFA')
-            nfa_to_dfa(automato)
-            DFA(automato)
-        print(f'Finalizado automato {n}\n')
+        Simulador(automato).inicia()
 
-    print('Imprimindo resultados em saida.txt')
+
+        # for p, r in zip(automato.palavras, automato.resultados):
+        #     print(p, r)
+    # print('Imprimindo resultados em saida.txt')
     automatos_to_text(automatos)
