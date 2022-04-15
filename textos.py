@@ -1,5 +1,7 @@
 from automato import Automato
 
+
+# Funcao que lê a arquivo "entrada.txt" como uma string de forma crua
 def le_arq_entrada():
     # Lê o arquivo de entrada:
     with open('entrada.txt') as f:
@@ -8,17 +10,19 @@ def le_arq_entrada():
     # Separa as instancias de entrada:
     entradas = []
     aux = ''
-    for char in conteudo:
-        if char == '{':
+    for char in conteudo:  # Adiciona cada caracter a uma string
+        if char == '{':  # Delimita cada entrada utilizando Chaves
             aux = ''
         elif char == '}':
             entradas.append(aux)
         else:
             aux += char
 
+    # Chama a função de interpretar a string de cada entrada e a retorna como automato
     return [interpreta_entrada(entrada, Automato()) for entrada in entradas]
 
 
+# Funcao que interpreta cada automato pegando suas caracteristicas -> Quintupla
 def interpreta_entrada(txt_entrada, aut):
     # Interpreta os dados para as variaveis
     get_rt = False
@@ -67,7 +71,7 @@ def interpreta_entrada(txt_entrada, aut):
         if v not in aut.vals:
             aut.vals.append(v)
 
-    # Transforma regra de transição em dicionario
+    # Transforma regra de transição em dicionario para melhor manipulação
     dicionario = {}
     for e in aut.estados:
         dicionario[e] = {}
@@ -77,26 +81,30 @@ def interpreta_entrada(txt_entrada, aut):
     for e1, e2, v in aut.r_transicao:
         dicionario[e1][v].append(e2)
 
+    # Verifica se é NFA
     for k in dicionario:
         for s0 in dicionario[k]:
             if len(dicionario[k][s0]) > 1:
                 aut.tipo = 'nfa'
 
+    # Verifica se é E-NFA, se for adiciona epsilon no dicionario de todas as transições
     if 'E' in aut.vals:
         aut.tipo = 'e-nfa'
         for k in dicionario:
             if 'E' not in dicionario[k].keys():
                 k['E'] = []
 
-
     aut.r_transicao = dicionario
     aut.organiza()
-    return aut
+    return aut  # Retorna um automato
 
+
+# Retira vários caracteres que nós humanos usamos para organizar mas não são importantes para a máquina
 def remove_special_chars(txt):
     return txt.replace(' ', '').replace('\n', '').replace('\t', '')
 
 
+# Transforma os dados dos automatos em uma string para salvar em um arquivo
 def automatos_to_text(automatos):
     text = ''
 

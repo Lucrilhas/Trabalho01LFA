@@ -1,3 +1,4 @@
+# Classe Automato, que serve praticamente apenas para organizar os dados pra não ficar jogado em uma lista
 class Automato:
     def __init__(self):
         self.estados = []
@@ -25,7 +26,7 @@ class Automato:
                 print(i, self.r_transicao[k][i], end=' ')
             print()
 
-    # Organiza
+    # Organiza os dados de forma alfabetica
     def organiza(self):
         self.estados = sorted(self.estados)
         self.e_final = sorted(self.e_final)
