@@ -2,7 +2,6 @@
 
 ### Lucas Elias de Andrade Cruvinel
 #### Github: https://github.com/Lucrilhas/Trabalho01LFA
-#### Youtube: 
 
 #### Introdução
 Nesse trabalho foi realizado o trabalho de implementar um simulador de autômato 
